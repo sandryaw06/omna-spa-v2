@@ -1,16 +1,19 @@
 import React, { Component } from "react";
 import { Page, Layout, Button, ButtonGroup } from "@shopify/polaris";
-import Products from "../Product/Products";
 import { Link, useHistory } from "react-router-dom";
 
 function HomePage() {
   let history = useHistory();
+  const [installing, setInstalling] = useState(true);
   return (
-    <Page title="OMNA App" separator>
+    // {installing &&
+
+    // }
+    <Page>
       <Layout>
         <ButtonGroup>
           <Button onClick={() => history.push("/omna_plan")}>OMNA Plan</Button>
-          <Button url="/products">Products</Button>
+          <Button onClick={() => history.push("/products")}>Products</Button>
           <Button>Orders</Button>
         </ButtonGroup>
       </Layout>

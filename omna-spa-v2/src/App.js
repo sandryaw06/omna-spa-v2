@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { AppProvider, Page } from "@shopify/polaris";
+import {
+  SkeletonPage,
+  Layout,
+  Card,
+  SkeletonDisplayText,
+  SkeletonBodyText,
+  TextContainer
+} from "@shopify/polaris";
 import HomePage from "./pages/HomePage";
 import OmnaPlan from "./pages/OmnaPlan";
 import NotFound from "./pages/NotFound";
@@ -34,17 +41,39 @@ function App() {
         let response = await axios.get("https://cenit.io/app/omna-dev/");
         console.log(response);
         setResult(response);
-        setLoading(false);
       } catch (error) {
         console.log(`error ${error}`);
       }
+      setLoading(false);
     }
     getSettings();
   }, []);
 
   return (
     <div>
-      {loading && <div className="loader"></div>}
+      {loading && (
+        <SkeletonPage primaryAction secondaryActions={1}>
+          <Layout>
+            <Layout.Section>
+              <Card sectioned>
+                <SkeletonBodyText />
+              </Card>
+              <Card sectioned>
+                <TextContainer>
+                  <SkeletonDisplayText size="small" />
+                  <SkeletonBodyText />
+                </TextContainer>
+              </Card>
+              <Card sectioned>
+                <TextContainer>
+                  <SkeletonDisplayText size="small" />
+                  <SkeletonBodyText />
+                </TextContainer>
+              </Card>
+            </Layout.Section>
+          </Layout>
+        </SkeletonPage>
+      )}
 
       {!loading && (
         <BrowserRouter>
