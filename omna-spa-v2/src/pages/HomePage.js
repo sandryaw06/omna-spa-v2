@@ -1,16 +1,20 @@
-import { React, Component } from "react";
-import { Page, AppProvider } from "@shopify/polaris";
+import React, { Component } from "react";
+import { Page, Layout, Button, ButtonGroup } from "@shopify/polaris";
+import Products from "../Product/Products";
+import { Link, useHistory } from "react-router-dom";
 
-class HomePage extends Component {
-  render() {
-    return (
-      <AppProvider>
-        <Page>
-          <p>Wide page content</p>
-        </Page>
-      </AppProvider>
-    );
-  }
+function HomePage() {
+  let history = useHistory();
+  return (
+    <Page title="OMNA App" separator>
+      <Layout>
+        <ButtonGroup>
+          <Button onClick={() => history.push("/omna_plan")}>OMNA Plan</Button>
+          <Button url="/products">Products</Button>
+          <Button>Orders</Button>
+        </ButtonGroup>
+      </Layout>
+    </Page>
+  );
 }
-
 export default HomePage;
