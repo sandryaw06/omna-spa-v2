@@ -6,7 +6,9 @@ import {
   SkeletonDisplayText,
   SkeletonBodyText,
   TextContainer,
+  FooterHelp,
   ProgressBar,
+  Link,
   Banner
 } from "@shopify/polaris";
 import HomePage from "./pages/HomePage";
@@ -132,12 +134,12 @@ function App() {
         )}
       </div>
 
-      <FooterHelp>
-        Learn more about{" "}
-        <Link url="https://help.shopify.com/manual/orders/fulfill-orders">
-          fulfilling orders
+      {/* <FooterHelp>
+        Learn more about the use of OMNA app in{" "}
+        <Link url="https://omna.freshdesk.com/support/home">
+          OMNA Documentation
         </Link>
-      </FooterHelp>
+      </FooterHelp> */}
     </OMNAContext.Provider>
   );
 }
