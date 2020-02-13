@@ -15,6 +15,7 @@ import Products from "./Product/Products";
 import API from "./Utils/api";
 import axios from "axios";
 import "./Utils/spinner.css";
+import Utils from "./Utils/Utils";
 
 function App() {
   const [result, setResult] = useState();
@@ -38,8 +39,9 @@ function App() {
   useEffect(() => {
     async function getSettings() {
       try {
-        let response = await axios.get("https://cenit.io/app/omna-dev/");
-        console.log(response);
+        let util = new Utils();
+        let params = util.getParams({});
+        let response = await API.get("/index", params);
         setResult(response);
       } catch (error) {
         console.log(`error ${error}`);
