@@ -87,7 +87,7 @@ function App() {
               path="/omna_plan"
               render={() => <OmnaPlan appContext={result.data.settings} />}
             ></Route>
-            <Route path="/" component={NotFound}></Route>
+            <Route component={NotFound}></Route>
           </Switch>
         </BrowserRouter>
       )}
