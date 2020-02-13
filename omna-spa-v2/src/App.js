@@ -131,6 +131,13 @@ function App() {
           // </AppContext.Provider>
         )}
       </div>
+
+      <FooterHelp>
+        Learn more about{" "}
+        <Link url="https://help.shopify.com/manual/orders/fulfill-orders">
+          fulfilling orders
+        </Link>
+      </FooterHelp>
     </OMNAContext.Provider>
   );
 }
