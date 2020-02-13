@@ -1,5 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { OMNAContext } from "../Utils/OMNAContext";
 
-const Products = () => <h1>Products</h1>;
+const Products = () => {
+  const a = useContext(OMNAContext);
+  console.log(a);
+  return <h1>hello word</h1>;
+};
 
 export default Products;
